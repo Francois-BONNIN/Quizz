@@ -1,4 +1,4 @@
-# TP - Quiz
+# TP - Quiz - Backend
 
 > Membre : François BONNIN
 
@@ -59,7 +59,7 @@
 #### Afficher les choix de la question :
 > GET :`/api/quiz/{questionId}/choices`
 
-#### Envoyer un quiz (mettre en paramètre la réponse et l'Id du quiz):
+#### Envoyer un quiz (mettre en paramètre la réponse et quizId):
 > POST :`/api/score`
 
 #### Obtenir les informations d'un utilisateur :

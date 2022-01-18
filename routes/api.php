@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\ScoreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,18 +33,18 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
 
-Route::get('/quiz');
-Route::get('/quiz/{id}');
-Route::post('/quiz'); // param quiz
-Route::put('/quiz/{quizId}'); // param quiz
-Route::delete('/quiz/{quiz.id}');
-Route::post('/quiz/{quiz.id}/publish');
-Route::post('/quiz/{quiz.id}/unpublish');
-Route::get('/quiz/{quizId}/questions');
+Route::get('/quiz', [QuizController::class, 'getQuizzes']);
+Route::get('/quiz/{quizId}', [QuizController::class, 'getQuiz']);
+Route::get('/quiz/{quizId}/questions', [QuizController::class, 'getQuestions']);
+Route::post('/quiz', [QuizController::class, 'addQuiz']); // param : quiz
+Route::put('/quiz/{quizId}', [QuizController::class, 'editQuiz']); // param : quiz
+Route::delete('/quiz/{quiz.id}', [QuizController::class, 'removeQuiz']);
+Route::post('/quiz/{quizId}/publish', [QuizController::class, 'publishQuiz']);
+Route::post('/quiz/{quizId}/unpublish', [QuizController::class, 'unpublishQuiz']);
 
-Route::get('/question/{questionId}/choices');
+Route::get('/question/{questionId}/choices', [QuestionController::class, 'getChoices']);
 
-Route::post('/score'); // param answers, quizId
-Route::get('/score');
+Route::post('/score', [QuizController::class, 'submitQuiz']); // param : answers, quizId
+Route::get('/score', [ScoreController::class, 'getScores']);
 
-Route::get('/user/{userId}');
+Route::get('/user/{userId}', [AuthController::class, 'userProfile']);
