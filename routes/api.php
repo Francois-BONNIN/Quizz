@@ -30,9 +30,10 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
 
+Route::get('/quiz');
 Route::get('/quiz/{id}');
-Route::post('/quiz', quiz);
-Route::put('/quiz/{quizId}', quiz);
+Route::post('/quiz'); // param quiz
+Route::put('/quiz/{quizId}'); // param quiz
 Route::delete('/quiz/{quiz.id}');
 Route::post('/quiz/{quiz.id}/publish');
 Route::post('/quiz/{quiz.id}/unpublish');
@@ -40,7 +41,7 @@ Route::get('/quiz/{quizId}/questions');
 
 Route::get('/question/{questionId}/choices');
 
-Route::post('/score', { answers, quiz_id: quizId });
+Route::post('/score'); // param answers, quizId
 Route::get('/score');
 
-Route::get('/user/' + userId);
+Route::get('/user/{userId}');
