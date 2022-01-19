@@ -39,7 +39,7 @@ class QuizController extends Controller
     public function removeQuiz($quizId){
         $quiz = Quiz::find($quizId);
         $quiz->delete();
-        return response()->json("Quiz deleted", 200);
+        return response()->json("Quiz deleted successfully", 200);
     }
 
 

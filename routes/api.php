@@ -36,7 +36,7 @@ Route::group([
 Route::middleware(['admin'])->group(function(){
     Route::post('/quiz', [QuizController::class, 'addQuiz']); // param : quiz
     Route::put('/quiz/{quizId}', [QuizController::class, 'editQuiz']); // param : quiz
-    Route::delete('/quiz/{quiz.id}', [QuizController::class, 'removeQuiz']);
+    Route::delete('/quiz/{quizId}', [QuizController::class, 'removeQuiz']);
 
     Route::post('/quiz/{quizId}/publish', [QuizController::class, 'publishQuiz']);
     Route::post('/quiz/{quizId}/unpublish', [QuizController::class, 'unpublishQuiz']);
