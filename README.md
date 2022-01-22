@@ -8,7 +8,6 @@
 
 ## 2. Database :
 - `php artisan migrate:fresh`
-- `php artisan db:seed`
 
 ## 3. Requêtes :
 
