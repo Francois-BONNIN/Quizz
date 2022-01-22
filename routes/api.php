@@ -41,11 +41,10 @@ Route::middleware(['admin'])->group(function(){
     Route::post('/quiz/{quizId}/publish', [QuizController::class, 'publishQuiz']);
     Route::post('/quiz/{quizId}/unpublish', [QuizController::class, 'unpublishQuiz']);
 
-    Route::get('/score', [ScoreController::class, 'getScores']);
-
-    Route::get('/user/{userId}', [AuthController::class, 'userProfile']);
 });
 
+Route::get('/user/{userId}', [QuizController::class, 'getUser']);
+Route::get('/score', [ScoreController::class, 'getScores']);
 Route::get('/quiz', [QuizController::class, 'getQuizzes'])->name('home');
 Route::get('/quiz/{quizId}', [QuizController::class, 'getQuiz']);
 Route::get('/quiz/{quizId}/questions', [QuizController::class, 'getQuestions']);

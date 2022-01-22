@@ -15,7 +15,7 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->string('label');
             $table->boolean('published');
